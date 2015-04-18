@@ -34,7 +34,7 @@ func GetUserBoard(c *echo.Context) {
 	var postOpt *nerdz.PostlistOptions
 	var n string
 
-	if err := c.Bind(n); err != nil {
+	if n = c.Request.FormValue("n"); n == "" {
 		postOpt = &nerdz.PostlistOptions{
 			User:      true,
 			Following: true,
